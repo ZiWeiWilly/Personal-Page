@@ -14,8 +14,8 @@ const links = [
   },
   {
     id: 3,
-    url: '/',
-    title: 'CV',
+    url: '/resume',
+    title: 'Resume',
   },
 ]
 
