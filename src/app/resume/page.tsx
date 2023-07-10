@@ -62,7 +62,7 @@ const skills: skill[] = [
 
 const Resume = () => {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 pt-24 pb-12">
       <div>{intro}</div>
       <div>
         <div>Work Experience</div>

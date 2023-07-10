@@ -24,7 +24,7 @@ const portfolioItems: portfolioItem[] = [
 
 const Portfolio = () => {
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col gap-4 pt-24 pb-12'>
       {portfolioItems.map((item) => (
         <div key={item.id} className='flex gap-8'>
           <div>
