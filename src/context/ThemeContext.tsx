@@ -18,12 +18,20 @@ export const ThemeContext = createContext<ThemeContextType>({
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [mode, setMode] = useState<TMode>(() => {
-    const theme = window.localStorage.getItem('theme') as TMode
-    return theme ?? 'system' 
+    if (typeof window !== 'undefined') {
+      const theme = localStorage.getItem('theme') as TMode
+      return theme ?? 'system' 
+    }
+
+    return 'system'
   })
+
   const isDark = () => {
     if (mode == 'system') {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
+      if (typeof window !== 'undefined') {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches
+      }
+      return false
     } else if (mode == 'dark') {
       return true
     } else {
@@ -33,7 +41,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   const changeMode = (mode: TMode) => {
     setMode(mode)
-    window.localStorage.setItem('theme', mode)
+    localStorage.setItem('theme', mode)
   }
 
   return (
